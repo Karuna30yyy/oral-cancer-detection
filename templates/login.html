@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"
+      type="text/javascript"
+    ></script>
+    <style>
+      body {
+        background: #e9e9e9;
+        background: url("https://i.pinimg.com/originals/98/27/ef/9827ef23f8e633eca6d8979235a50a52.jpg");
+        background-size: cover;
+        color: #666666;
+        font-family: "RobotoDraft", "Roboto", sans-serif;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      .pen-title {
+        padding: 50px 0;
+        text-align: center;
+        letter-spacing: 2px;
+      }
+      .pen-title h1 {
+        margin: 0 0 20px;
+        font-size: 48px;
+        font-weight: 300;
+      }
+      .pen-title span {
+        font-size: 12px;
+      }
+      .pen-title span .fa {
+        color: #33b5e5;
+      }
+      .pen-title span a {
+        color: #33b5e5;
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      /* Form Module */
+      .form-module {
+        position: relative;
+        background: #ffffff;
+        max-width: 320px;
+        width: 100%;
+        border-top: 5px solid #2d58ce;
+        border-left: 5px solid #2d58ce;
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+        margin: 0 auto;
+      }
+      .form-module .toggle {
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: #2d58ce;
+        width: 30px;
+        height: 30px;
+        margin: -5px 0 0;
+        color: #ffffff;
+        font-size: 12px;
+        line-height: 30px;
+        text-align: center;
+      }
+      .form-module .toggle .tooltip {
+        position: absolute;
+        top: 5px;
+        right: -65px;
+        display: block;
+        background: rgba(0, 0, 0, 0.006);
+        width: auto;
+        padding: 5px;
+        font-size: 10px;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+      .form-module .toggle .tooltip:before {
+        content: "";
+        position: absolute;
+        top: 5px;
+        left: -5px;
+        display: block;
+        border-top: 5px solid transparent;
+        border-bottom: 5px solid transparent;
+        border-right: 5px solid rgba(0, 0, 0, 0.6);
+      }
+      .form-module .form {
+        display: none;
+        padding: 40px;
+      }
+      .form-module .form:nth-child(2) {
+        display: block;
+      }
+      .form-module h2 {
+        margin: 0 0 20px;
+        color: #2d58ce;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1;
+      }
+      .form-module input {
+        outline: none;
+        display: block;
+        width: 100%;
+        border: 1px solid #d9d9d9;
+        margin: 0 0 20px;
+        padding: 10px 15px;
+        box-sizing: border-box;
+        font-weight: 400;
+        transition: 0.3s ease;
+      }
+      .form-module input:focus {
+        border: 1px solid #2d58ce;
+        color: #333333;
+      }
+      .form-module button {
+        cursor: pointer;
+        background: #2d58ce;
+        width: 100%;
+        border: 0;
+        padding: 10px 15px;
+        color: #ffffff;
+        transition: 0.3s ease;
+      }
+      .form-module button:hover {
+        background: #3b0aec;
+      }
+      .form-module .cta {
+        background: #f2f2f2;
+        width: 100%;
+        padding: 15px 40px;
+        box-sizing: border-box;
+        color: #666666;
+        font-size: 12px;
+        text-align: center;
+      }
+      .form-module .cta a {
+        color: #333333;
+        text-decoration: none;
+      }
+
+      /*img{
+	width: 100vw;
+}*/
+      .login {
+        height: 100vh;
+        width: 100vw;
+        /*background: url(https://i.pinimg.com/originals/98/27/ef/9827ef23f8e633eca6d8979235a50a52.jpg);*/
+        /*background: radial-gradient(#653d84, #332042);*/
+        /*background-color: rgb(209, 222, 228);*/
+        position: relative;
+      }
+      .login_box {
+        width: 900px;
+        height: 500px;
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 1px 4px 22px -8px #0004;
+        display: flex;
+        overflow: hidden;
+        opacity: 0.7;
+      }
+      .login_box .left {
+        width: 41%;
+        height: 100%;
+        padding: 25px 25px;
+      }
+      .login_box .right {
+        width: 59%;
+        height: 100%;
+      }
+      .left .top_link a {
+        color: #452a5a;
+        font-weight: 400;
+      }
+      .left .top_link {
+        height: 20px;
+      }
+      .left .contact {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        align-self: center;
+        height: 100%;
+        width: 73%;
+        margin: auto;
+      }
+      .left h3 {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      .left input {
+        border: none;
+        width: 80%;
+        margin: 15px 0px;
+        border-bottom: 1px solid #4f30677d;
+        padding: 7px 9px;
+        width: 100%;
+        overflow: hidden;
+        background: transparent;
+        font-weight: 600;
+        font-size: 14px;
+      }
+      .left {
+        background: linear-gradient(-45deg, #f6f6f8, #f7f7f8);
+      }
+      .submit {
+        border: none;
+        padding: 15px 70px;
+        border-radius: 8px;
+        display: block;
+        margin: auto;
+        margin-top: 120px;
+        background: #233265;
+        color: #fff;
+        font-weight: bold;
+        -webkit-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+        -moz-box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+        box-shadow: 0px 9px 15px -11px rgba(88, 54, 114, 1);
+      }
+
+      .right {
+        background: linear-gradient(
+              212.38deg,
+              rgba(6, 34, 126, 0.7) 0%,
+              rgba(5, 51, 65, 0.71)
+            )
+            100%,
+          url("https://thumbs.dreamstime.com/b/scientific-handling-light-microscope-examines-laboratory-sample-pharmaceutical-bioscience-research-concept-science-175732629.jpg");
+        color: #fff;
+        position: relative;
+      }
+
+      .right .right-text {
+        height: 100%;
+        position: relative;
+        transform: translate(0%, 45%);
+      }
+      .right-text h2 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 50px;
+        font-weight: 500;
+      }
+      .right-text h5 {
+        display: block;
+        width: 100%;
+        text-align: center;
+        font-size: 19px;
+        font-weight: 400;
+      }
+
+      .right .right-inductor {
+        position: absolute;
+        width: 70px;
+        height: 7px;
+        background: #fff0;
+        left: 50%;
+        bottom: 70px;
+        transform: translate(-50%, 0%);
+      }
+      /*.top_link img {
+    width: 28px;
+    padding-right: 7px;
+    margin-top: -3px;
+}*/
+      .header {
+        align-items: center;
+        background-color: #223265;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .header a,
+      .header .el {
+        color: white;
+        font-family: "RobotoDraft", "Roboto", sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .header .el {
+        /* height: 60px;
+  width: 30px; */
+        display: inline-block;
+        padding: 10px;
+      }
+      .el:hover {
+        background-color: #07102c;
+        color: #193a8d;
+      }
+
+      #navbarNav {
+        background-color: #233265;
+        margin-top: 0%;
+        padding: 0%;
+      }
+      #navbarNav a {
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+        font-weight: bold;
+      }
+      #navbarNav a:hover {
+        background-color: rgb(209, 222, 228);
+        color: black;
+      }
+      .navbar {
+        padding: 0px;
+      }
+      .top {
+        padding: 0px;
+      }
+      .header .el:hover {
+        color: white;
+      }
+      .success,
+      .error {
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .success {
+        color: #4caf50;
+      }
+
+      .error {
+        color: #f44336;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="el"><a href="{{url_for('home')}}">HOME</a></div>
+      <div class="el toggle">LOGIN</div>
+      <div class="el toggle">SIGN UP</div>
+    </div>
+    <div style="display: none" class="isLogin">{{loginPage}}</div>
+    <div class="login">
+      <div class="login_box">
+        <div class="left">
+          <div class="module form-module">
+            <div class="form">
+              <form action="/login" method="post">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+                <button type="submit" name="submit" value="Login">Login</button>
+              </form>
+            </div>
+            <div class="form">
+              <h2>Create an account</h2>
+              <form action="/register" method="post">
+                <input type="text" name="username" placeholder="Username" />
+                <input type="password" name="password" placeholder="Password" />
+                <input type="age" name="age" placeholder="Age" />
+
+                <input type="email" name="email" placeholder="Email" />
+                <button type="submit" name="submit" value="Register">
+                  Register
+                </button>
+              </form>
+            </div>
+          </div>
+          {% if error %}
+          <h6 class="error">{{error}}</h6>
+          {% endif %} {% if success %}
+          <h6 class="success">
+            Registered Successfully! Please proceed to
+            <a href="{{ url_for('login') }}">Login</a>
+          </h6>
+          {% endif %}
+        </div>
+        <div class="right">
+          <div class="right-text">
+            <h2>DYGNOSE</h2>
+            <h5>ML BASED ORAL CANCER DETECTION</h5>
+          </div>
+          <div class="right-inductor"><img src="" alt="" /></div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    var isLogin = $(".isLogin").text().toLowerCase().includes("true");
+    if (isLogin)
+      $(".form").animate(
+        {
+          height: "toggle",
+          "padding-top": "toggle",
+          "padding-bottom": "toggle",
+          opacity: "toggle",
+        },
+        "slow"
+      );
+
+    $(".toggle").click(function () {
+      if (
+        (!isLogin && $(this).text().toLowerCase().includes("login")) ||
+        (isLogin && $(this).text().toLowerCase().includes("sign up"))
+      ) {
+        $(this).children("i").toggleClass("fa-pencil");
+
+        $(".form").animate(
+          {
+            height: "toggle",
+            "padding-top": "toggle",
+            "padding-bottom": "toggle",
+            opacity: "toggle",
+          },
+          "slow"
+        );
+        isLogin = !isLogin;
+      }
+    });
+  </script>
+</html>

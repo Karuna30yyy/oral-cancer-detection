@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='style2.css') }}"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <div class="el"><a href="#">HOME</a></div>
+      <div class="el"><a href="{{ url_for('login')}}">LOGIN</a></div>
+      <div class="el"><a href="#">SIGN UP</a></div>
+    </div>
+    <div class="heading">
+      <h1>Cancer Detection At The</h1>
+      <h1>Comfort Of Your Home!</h1>
+
+      <button onclick="openSignup()" class="top-btn">GET STARTED</button>
+    </div>
+
+    <div class="cards-container">
+      <div class="card">
+        <div class="gradient" style="background: #1754ce"></div>
+        <div class="card-content-container flex-container-column">
+          <div class="card-image-container flex-container-row">
+            <img
+              class="flex-item card-image"
+              src="{{ url_for('static', filename='about-us.png') }}"
+            />
+          </div>
+          <div class="title flex-item">ABOUT US</div>
+          <p class="card-text-content flex-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptatum, quibusdam, quia, quae voluptates voluptate quod
+            voluptatibus quos doloribus quidem voluptas. Quisquam voluptatum,
+            quibusdam, quia, quae voluptates voluptate quod voluptatibus quos
+            doloribus quidem voluptas.
+          </p>
+        </div>
+      </div>
+
+      <div class="card" style="height: 400px; color: #223265">
+        <div class="gradient" style="background: #4ab1e0"></div>
+        <div class="card-content-container flex-container-column">
+          <div class="card-image-container flex-container-row">
+            <img
+              class="flex-item card-image image-detection-image"
+              src="{{ url_for('static', filename='image-detection.png') }}"
+            />
+          </div>
+          <div style="color: #223265" class="title flex-item">
+            IMAGE DETECTION
+          </div>
+          <p class="card-text-content flex-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptatum, quibusdam, quia, quae voluptates voluptate quod
+            voluptatibus quos doloribus quidem voluptas. Quisquam voluptatum,
+            quibusdam, quia, quae voluptates voluptate quod voluptatibus quos
+            doloribus quidem voluptas.
+          </p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="gradient" style="background: #1754ce"></div>
+        <div class="card-content-container flex-container-column">
+          <div class="card-image-container flex-container-row">
+            <img
+              class="flex-item card-image"
+              src="{{ url_for('static', filename='contact-us.png') }}"
+            />
+          </div>
+          <div class="title flex-item">CONTACT US</div>
+          <p class="card-text-content flex-item">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam
+            voluptatum, quibusdam, quia, quae voluptates voluptate quod
+            voluptatibus quos doloribus quidem voluptas. Quisquam voluptatum,
+            quibusdam, quia, quae voluptates voluptate quod voluptatibus quos
+            doloribus quidem voluptas.
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    function openSignup() {
+      window.location.href = "/register";
+    }
+  </script>
+</html>

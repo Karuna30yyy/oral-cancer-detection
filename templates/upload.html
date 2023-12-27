@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        margin: 0;
+        font-family: "Roboto", sans-serif;
+        background-image: url("https://i.pinimg.com/originals/98/27/ef/9827ef23f8e633eca6d8979235a50a52.jpg");
+        background-size: cover;
+      }
+      .header {
+        align-items: center;
+        background-color: #223265;
+        padding-right: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+      .header a {
+        color: white;
+        font-size: 20px;
+        text-decoration: none;
+      }
+      .header .el {
+        /* height: 60px;
+  width: 30px; */
+        display: inline-block;
+        padding: 15px;
+      }
+      .el:hover {
+        background-color: #07102c;
+        color: #9ba0ad;
+      }
+      .container {
+        max-width: 650px;
+        width: 100%;
+        padding: 30px;
+        background: #fff;
+        border-radius: 20px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+      }
+
+      .drag-area {
+        height: 350px;
+        border: 3px dashed #e0eafc;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        margin: 10px auto;
+      }
+
+      h3 {
+        margin-bottom: 20px;
+        font-weight: 500;
+      }
+
+      .drag-area .icon {
+        font-size: 50px;
+        color: #1683ff;
+      }
+
+      .drag-area .drag-header {
+        font-size: 20px;
+        font-weight: 500;
+        color: #34495e;
+      }
+
+      .drag-area .support {
+        font-size: 12px;
+        color: gray;
+        margin: 10px 0 15px 0;
+      }
+
+      .drag-area .button {
+        font-size: 20px;
+        font-weight: 500;
+        color: #1683ff;
+        cursor: pointer;
+      }
+
+      .drag-area.active {
+        border: 2px solid #1683ff;
+      }
+
+      .drag-area img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .flex-container-row {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: stretch;
+        align-items: center;
+      }
+
+      .flex-container-column {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-content: stretch;
+        align-items: center;
+      }
+
+      .flex-item {
+        order: 0;
+        flex: 0 1 auto;
+        align-self: auto;
+        margin: 0px;
+      }
+
+      .upload-body {
+        margin-top: 40px;
+        gap: 40px;
+      }
+
+      .submit-btn {
+        width: 200px;
+        height: 35px;
+        border-radius: 30px;
+        border: 1px solid #1fb141;
+        background: #1fb141;
+        box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+        color: #fff;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        cursor: pointer;
+        transition: width 0.3s ease-in-out;
+      }
+      .submit-btn:hover {
+        width: 220px;
+        height: 40px;
+      }
+      .logout:hover {
+        background-color: #f44336;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <!-- <div class="el"><a href="#">HOME</a></div>
+      <div class="el"><a href="#">LOGIN</a></div>
+      <div class="el"><a href="#">SIGN UP</a></div> -->
+      <div class="el logout"><a href="{{ url_for('logout') }}">Log Out</a></div>
+    </div>
+    <div class="upload-body flex-container-column">
+      <div class="container flex-item">
+        <h3>Upload your File :</h3>
+        <div class="drag-area">
+          <div class="icon">
+            <i class="fas fa-images"></i>
+          </div>
+
+          <span class="drag-header">Drag & Drop</span>
+          <span class="drag-header">or <span class="button">browse</span></span>
+          <input type="file" hidden />
+          <span class="support">Supports: JPEG, JPG, PNG</span>
+        </div>
+      </div>
+      <button class="submit-btn flex-item">Generate Results</button>
+    </div>
+  </body>
+  <script src="{{ url_for('static', filename='script3 .js') }}"></script>
+</html>
